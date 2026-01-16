@@ -1,0 +1,368 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper, margin=1in]{geometry}
+
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathrsfs}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+
+\usepackage{tikz}
+\usepackage{stackengine}
+\usepackage{scalerel}
+
+\usepackage{hyperref}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\mustachebrace}[2]{%
+  \underbrace{#1}_{\text{\begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node[anchor=base] (a) at (0,0) {\scaleto{\text{#2}}{4pt}};
+  \end{tikzpicture}}}
+}
+
+\title{\textbf{Solutions to \\ \textit{Understanding Analysis} by Stephen Abbott}}
+\author{Yamini Singh}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercises}
+
+\textbf{Exercise 1.4.1.} Recall that $I$ stands for the set of irrational numbers.
+
+\begin{enumerate}[(a)]
+    \item Show that if $a,b \in \mathbb{Q}$, then $ab$ and $a + b$ are elements of $\mathbb{Q}$ as well.
+
+    \textbf{Solution.}
+
+\textit{Proof.}
+
+Since $a,b \in \mathbb{Q}$,
+\[
+a = \frac{p}{q}, \quad b = \frac{m}{n},
+\]
+for some $p,m \in \mathbb{Z}$ and $q,n \in \mathbb{N}$ with $q \neq 0$ and $n \neq 0$.
+
+Then
+\[
+ab = \frac{pm}{qn}.
+\]
+
+Since $pm \in \mathbb{Z}$ and $qn \in \mathbb{N}$ with $qn \neq 0$,
+\[
+\Rightarrow ab \in \mathbb{Q}.
+\]
+
+Also,
+\[
+a+b = \frac{p}{q} + \frac{m}{n} = \frac{pn + qm}{qn}.
+\]
+
+Since $pn + qm \in \mathbb{Z}$ and $qn \in \mathbb{N}$ with $qn \neq 0$,
+\[
+\Rightarrow a+b \in \mathbb{Q}.
+\]
+
+Thus, $\mathbb{Q}$ is closed under addition and multiplication.
+\qed
+    \item Show that if $a \in \mathbb{Q}$ and $t \in I$, then $a + t \in I$ and $at \in I$ as long as $a \ne 0$.
+    \item Part (a) can be summarized by saying that $\mathbb{Q}$ is closed under addition and multiplication. 
+    Is $I$ closed under addition and multiplication? Given two irrational numbers $s$ and $t$, what can we say about $s+t$ and $st$?
+\end{enumerate}
+
+\vspace{0.2cm}
+
+\textbf{Exercise 1.4.2.} Let $A \subseteq \mathbb{R}$ be nonempty and bounded above, and let $s \in \mathbb{R}$ have the property that for all $n \in \mathbb{N}$, $s + \frac{1}{n}$ is an upper bound for $A$ and $s - \frac{1}{n}$ is not an upper bound for $A$. Show $s = \sup A$.
+
+\textbf{Solution.}
+
+\textit{Step 1: $s$ is an upper bound for $A$.}
+
+Since
+\[
+s + \frac{1}{n} \text{ is an upper bound for } A \quad \text{for all } n \in \mathbb{N},
+\]
+we have
+\[
+x \le s + \frac{1}{n} \quad \text{for all } x \in A \text{ and all } n \in \mathbb{N}.
+\]
+
+Letting $n \to \infty$, we obtain
+\[
+x \le s \quad \text{for all } x \in A.
+\]
+
+\[
+\Rightarrow s \text{ is an upper bound for } A.
+\]
+
+\textit{Step 2: $s$ is the least upper bound of $A$.}
+
+Since
+\[
+s - \frac{1}{n} \text{ is not an upper bound for } A \quad \text{for all } n \in \mathbb{N},
+\]
+it follows that for each $n \in \mathbb{N}$, there exists an element $x_n \in A$ such that
+\[
+s - \frac{1}{n} < x_n.
+\]
+
+Now let $\varepsilon > 0$ be given.
+
+By the Archimedean Property, there exists $m \in \mathbb{N}$ such that
+\[
+\frac{1}{m} < \varepsilon.
+\]
+
+Since $s - \frac{1}{m}$ is not an upper bound for $A$, there exists $x \in A$ such that
+\[
+s - \frac{1}{m} < x.
+\]
+
+Thus,
+\[
+s - \varepsilon < s - \frac{1}{m} < x \le s.
+\]
+
+\[
+\Rightarrow \text{for every } \varepsilon > 0, \text{ there exists } x \in A \text{ such that } s - \varepsilon < x \le s.
+\]
+
+Hence, no number smaller than $s$ can be an upper bound for $A$.
+
+\[
+\Rightarrow s \text{ is the least upper bound of } A.
+\]
+
+Therefore,
+\[
+\boxed{s = \sup A.}
+\]
+
+\vspace{0.2cm}
+
+\textbf{Exercise 1.4.3.} Prove that $\bigcap_{n=1}^{\infty} (0, 1/n) = \varnothing$. Notice that this demonstrates that the intervals in the Nested Interval Property must be closed for the conclusion of the theorem to hold.
+
+\textbf{Proof.}
+Suppose, for contradiction, that
+\[
+\bigcap_{n=1}^{\infty} (0,1/n)\neq\varnothing.
+\]
+Then there exists some $x\in\mathbb{R}$ such that
+\[
+x\in (0,1/n)\quad \text{for all } n\in\mathbb{N}.
+\]
+
+Define
+\[
+I_n=(0,1/n), \quad n\in\mathbb{N}.
+\]
+Then
+\[
+x\in I_n \ \forall n \in \mathbb{N}
+\;\Rightarrow\;
+0<x<\frac{1}{n} \ \forall n\in\mathbb{N}.
+\]
+
+Thus,
+\[
+x \le \frac{1}{n} \quad \forall n\in\mathbb{N},
+\]
+which implies that $x$ is a lower bound of the set
+\[
+\left\{\frac{1}{n}: n\in\mathbb{N}\right\}.
+\]
+
+But
+\[
+\inf\left\{\frac{1}{n}: n\in\mathbb{N}\right\}=0,
+\]
+since for every $\varepsilon>0$, there exists $n\in\mathbb{N}$ such that
+\[
+\frac{1}{n}<\varepsilon
+\]
+(by the Archimedean Property).
+
+Hence,
+\[
+x \le 0.
+\]
+This contradicts the fact that $x>0$.
+
+Therefore, no such $x$ exists, and we conclude
+\[
+\bigcap_{n=1}^{\infty} (0,1/n)=\varnothing.
+\]
+\qed
+
+\vspace{0.2cm}
+
+\textbf{Exercise 1.4.4.} Let $a < b$ be real numbers and consider the set $T = \mathbb{Q} \cap [a,b]$. Show $\sup T = b$.
+
+\textbf{Solution.}
+
+\textit{Step 1: $b$ is an upper bound for $T$.}
+
+For all $x \in [a,b]$, we have
+\[
+x \le b.
+\]
+
+Since $T \subseteq [a,b]$, it follows that
+\[
+x \le b \quad \text{for all } x \in T.
+\]
+
+\[
+\Rightarrow b \text{ is an upper bound for } T.
+\]
+
+\textit{Step 2: $b$ is the least upper bound of $T$.}
+
+Let $\varepsilon > 0$ be given, with $\varepsilon \le b - a$.
+
+Since the rational numbers are dense in $\mathbb{R}$, there exists a rational number $q \in \mathbb{Q}$ such that
+\[
+b - \varepsilon < q < b.
+\]
+
+Because $a \le b - \varepsilon < q < b \le b$, we have
+\[
+q \in [a,b].
+\]
+
+Hence,
+\[
+q \in \mathbb{Q} \cap [a,b] = T.
+\]
+
+Thus, for every $\varepsilon > 0$, there exists $q \in T$ such that
+\[
+b - \varepsilon < q \le b.
+\]
+
+\[
+\Rightarrow \text{no number smaller than } b \text{ can be an upper bound for } T.
+\]
+
+Therefore,
+\[
+\boxed{\sup T = b.}
+\]
+
+\vspace{0.2cm}
+
+\textbf{Exercise 1.4.5.} Using Exercise 1.4.1, supply a proof for Corollary 1.4.4 by considering the real numbers $a - \sqrt{2}$ and $b - \sqrt{2}$.
+
+\textbf{Proof.}
+Let $a<b$ be real numbers. Consider the real numbers
+\[
+a-\sqrt{2} \quad \text{and} \quad b-\sqrt{2}.
+\]
+Since $a<b$, we have
+\[
+a-\sqrt{2} < b-\sqrt{2}.
+\]
+
+Because $\mathbb{Q}$ is dense in $\mathbb{R}$, there exists a rational number
+\[
+r \in \mathbb{Q}
+\]
+such that
+\[
+a-\sqrt{2} < r < b-\sqrt{2}.
+\]
+
+Adding $\sqrt{2}$ throughout gives
+\[
+a < r+\sqrt{2} < b.
+\]
+
+Now, $r\in\mathbb{Q}$ and $\sqrt{2}\in I$, so by Exercise 1.4.1(b),
+\[
+r+\sqrt{2} \in I.
+\]
+
+Thus, there exists an irrational number $t=r+\sqrt{2}$ such that
+\[
+a<t<b.
+\]
+\qed
+
+\vspace{0.2cm}
+
+\textbf{Exercise 1.4.6.} Recall that a set $B$ is \emph{dense} in $\mathbb{R}$ if an element of $B$ can be found between any two real numbers $a < b$. Which of the following sets are dense in $\mathbb{R}$? 
+Take $p \in \mathbb{Z}$ and $q \in \mathbb{N}$ in every case.
+\begin{enumerate}[(a)]
+    \item The set of all rational numbers $p/q$ with $q \le 10$.
+    \item The set of all rational numbers $p/q$ with $q$ a power of $2$.
+    \item The set of all rational numbers $p/q$ with $10|p| \ge q$.
+\end{enumerate}
+
+\vspace{0.2cm}
+
+\textbf{Exercise 1.4.7.} Finish the proof of Theorem 1.4.5 by showing that the assumption $\alpha^2 > 2$ leads to a contradiction of the fact that $\alpha = \sup T$.
+
+\vspace{0.2cm}
+
+\textbf{Exercise 1.4.8.} Give an example of each or state that the request is impossible. When a request is impossible, provide a compelling argument for why this is the case.
+
+\begin{enumerate}[(a)]
+    \item Two sets $A$ and $B$ with $A \cap B = \varnothing$, $\sup A = \sup B$, 
+    $A \not\subseteq A^c$ and $\sup B \not\in B$.
+
+    \textbf{Example exists.}
+
+Let
+\[
+A = \mathbb{Q} \cap (0,2), \qquad B = I \cap (0,2).
+\]
+Then
+\[
+A \cap B = \emptyset,
+\]
+because no number is both rational and irrational. Moreover,
+\[
+\sup A = \sup B = 2,
+\]
+and since $2 \notin (0,2)$,
+\[
+2 \notin A \quad \text{and} \quad 2 \notin B.
+\]
+    
+    \item A sequence of nested open intervals $J_1 \supseteq J_2 \supseteq J_3 \supseteq \cdots$ with $\bigcap_{n=1}^{\infty} J_n$ nonempty but containing only a finite number of elements.
+
+\textbf{Impossible.}
+    
+    \item A sequence of nested unbounded closed intervals $L_1 \supseteq L_2 \supseteq L_3 \supseteq \cdots$ with $\bigcap_{n=1}^{\infty} L_n = \varnothing$.
+    (An unbounded closed interval has the form $[a,\infty) = \{x \in \mathbb{R} : x \ge a\}$.)
+
+\textbf{Example exists.}
+
+Define
+\[
+L_n = [n,\infty).
+\]
+Then
+\[
+L_1 \supseteq L_2 \supseteq L_3 \supseteq \cdots,
+\]
+each $L_n$ is closed and unbounded, and
+\[
+\bigcap_{n=1}^\infty L_n = \emptyset,
+\]
+since no real number is greater than or equal to every natural number.
+    
+    \item A sequence of closed bounded (not necessarily nested) intervals $I_1, I_2, I_3, \ldots$ with the property that $\bigcap_{n=1}^N I_n \ne \varnothing$ for all $N \in \mathbb{N}$, but $\bigcap_{n=1}^{\infty} I_n = \varnothing$.
+
+\textbf{Impossible.}
+\end{enumerate}
+
+\end{document}
