@@ -1,0 +1,1015 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper, margin=1in]{geometry}
+
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathrsfs}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+
+\usepackage{tikz}
+\usepackage{stackengine}
+\usepackage{scalerel}
+
+\usepackage{hyperref}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\mustachebrace}[2]{%
+  \underbrace{#1}_{\text{\begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node[anchor=base] (a) at (0,0) {\scaleto{\text{#2}}{4pt}};
+  \end{tikzpicture}}}
+}
+
+\title{\textbf{Solutions to \\ \textit{Understanding Analysis} by Stephen Abbott}}
+\author{Yamini Singh}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercises}
+
+\textbf{Exercise 1.2.1.}  
+(a) Prove that \( \sqrt{3} \) is irrational.  
+Does a similar argument work to show \( \sqrt{6} \) is irrational?
+
+(b) Where does the proof of Theorem 1.1.1 break down if we try to use it to prove \( \sqrt{4} \) is irrational?
+
+\textbf{Solution.}
+(a) Consider to the contrary that \( \sqrt{3} \) is rational.  
+Therefore, we can express \( \sqrt{3} \) as some \( \frac{p}{q} \) where \( p, q \in \mathbb{Z} \) and \( p \) and \( q \) are co-prime.  
+
+Thus, \( \sqrt{3} = \frac{p}{q} \).  
+
+\[
+\Rightarrow 3 = \left( \frac{p}{q} \right)^2 \Rightarrow p^2 = 3q^2.
+\]
+
+Hence, \( p^2 \) is divisible by 3.  
+\[
+\Rightarrow p \text{ must also be divisible by 3}.
+\]
+
+(The prime factorisation of \( p^2 \) must contain 3, and since 3 is a prime, 3 appears two times in the factorisation of \( p^2 \).)
+
+Let \( p = 3m \) for some \( m \in \mathbb{Z} \). Then,
+\[
+\Rightarrow 9m^2 = 3q^2 \Rightarrow q^2 = 3m^2 \Rightarrow q \text{ is also divisible by 3}.
+\]
+
+But we assumed that \( p \) and \( q \) have no common factors.  
+
+Contradiction.
+
+Yes. Assume \( \sqrt{6} \) is rational. Then, we can express \(\sqrt{6}\) as some \(\frac{p}{q}\) where \(p,q\in \mathbb{Z}\) and \(p\) and \(q\) are co-prime.
+
+Thus, \( \sqrt{6} = \frac{p}{q} \).  
+
+\[
+\Rightarrow 6 = \left( \frac{p}{q} \right)^2 \Rightarrow p^2 = 6q^2.
+\]
+
+Hence, \( p^2 \) is divisible by 6. Thus, \(p^2\) is divisible by 3. Thus, p is divisible by 3.
+Let \( p = 3m \) for some \( m \in \mathbb{Z} \). Then,
+\[
+\Rightarrow 9m^2 = 6q^2 \Rightarrow 3m^2 = 2q^2 \Rightarrow q^2 = \frac{3m^2}{2}
+\]
+Now, since \( q^2 \) is an integer, thus, \( q^2 \) is divisible by 2 and 3, and q is divisible by 2 and 3.
+
+But we assumed that \( p \) and \( q \) have no common factors.  
+
+Contradiction.
+
+(b) Let us assume \(\sqrt{4}\) is rational. Therefore, we can express \( \sqrt{4} \) as some \( \frac{p}{q} \) where \( p, q \in \mathbb{Z} \) and \( p \) and \( q \) are co-prime.  
+
+Thus, \( \sqrt{4} = \frac{p}{q} \).  
+
+\[
+\Rightarrow 4 = \left( \frac{p}{q} \right)^2 \Rightarrow p^2 = 4q^2.
+\]
+
+Hence, \( p^2 \) is divisible by 4, thus, \(p^2\) is even, thus, p is even. (Square of an odd number is odd.)
+
+Now, Let \( p = 2m \) for some \( m \in \mathbb{Z} \). Then,
+\[
+\Rightarrow 4m^2 = 4q^2 \Rightarrow q^2 = m^2 \Rightarrow q = \pm m
+\]
+Thus, 
+\[\sqrt{4} = \frac{2m}{\pm m} = \pm 2\]
+
+There is no contradiction here. We just showed that we can express \(\sqrt{4}\) as \(\frac{2}{1}\).
+
+---
+
+\textbf{Exercise 1.2.2.}  
+Show that there is no rational number \( r \) satisfying \( 2^r = 3 \).
+
+
+
+\textbf{Solution.} Since r is a rational number. Let r = \(\frac{p}{q}\) where \( p, q \in \mathbb{Z} \) and \( p \) and \( q \) are co-prime.
+
+Thus,
+\[
+2^\frac{p}{q} = 3 \Rightarrow 2^p = 3^q
+\]
+Case 1: p > 0 and q < 0
+
+Then, \(2^p \ge 2\) and \(3^q \le 1\)
+
+\vspace{5pt}
+
+Case 2: p < 0 and q > 0
+
+Similar to Case 1.
+\vspace{5pt}
+
+Case 3: p and q > 0
+
+\(2^p \mid 3^q\) implies 2 divides 3 (since 2 and 3 both are primes) which is not the case. (If \( a \mid b \) and \( b \mid a \), where \( a, b \in \mathbb{Z} \), then \( a = b \) or \( a = -b \).
+\vspace{5pt}
+
+Case 4: p and q < 0 is case 3.
+
+\vspace{5pt}
+
+Hence, there is no rational number \( r \) satisfying \( 2^r = 3 \).
+
+---
+
+\textbf{Exercise 1.2.3.}  
+Decide which of the following represent true statements about the nature of sets. For any that are false, provide a specific example where the statement in question does not hold.
+
+\begin{enumerate}
+    \item[(a)] If \( A_1 \supseteq A_2 \supseteq A_3 \supseteq \ldots \) are all sets containing an infinite number of elements, then the intersection \( \bigcap_{n=1}^\infty A_n \) is infinite as well.
+
+    \textbf{Solution.} False. Consider \( A_n = \{ n, n+1, n+2, \ldots \} \) where \( n \in \mathbb{N} \).  
+    Then,
+    \[
+    \bigcap_{i=1}^{\infty} A_i = \varnothing.
+    \]
+    
+    If the intersection were not empty, then there would exist a natural number \( m \in \mathbb{N} \) such that
+    \[
+    m \in \bigcap_{i=1}^{\infty} A_i.
+    \]
+
+    But this implies \( m \in A_{m+1} \), which is false because \( A_{m+1} = \{ m+1, m+2, m+3, \ldots \} \), and hence \( m \notin A_{m+1} \).
+
+    Contradiction.
+
+    \item[(b)] {If \( A_1 \supseteq A_2 \supseteq A_3 \supseteq \ldots \) are all finite, nonempty sets of real numbers, then the intersection \( \bigcap_{n=1}^\infty A_n \) is finite and nonempty.}
+
+    \textbf{Solution.}
+
+\begin{proof}
+Let $A_1 \supseteq A_2 \supseteq A_3 \supseteq A_4 \supseteq \cdots$ be finite, nonempty sets. 
+Assume, for the sake of contradiction, that
+\[
+\bigcap_{n=1}^{\infty} A_n = \varnothing.
+\]
+This implies that there exists some element $a_n$ such that
+\[
+a_n \in A_n \quad \text{but} \quad a_n \notin A_{n+1}, \qquad n \ge 1.
+\]
+Since we have $\mathbb{N}$ (the set of natural numbers) indexing the sets, the sequence $\{a_n\}$ has $\aleph_0$ (countably infinitely) many elements. Moreover, since $A_1$ is the superset containing all of the subsequent sets, this means that
+\[
+\{a_1, a_2, a_3, \ldots\} \subseteq A_1.
+\]
+Thus, $A_1$ has infinitely many elements, which contradicts the fact that $A_1$ is finite. Therefore, our assumption was false, and
+\[
+\bigcap_{n=1}^{\infty} A_n
+\]
+must be non-empty.
+
+It must be finite since $A_1$ is the superset containing all of the subsequent sets, and since 
+$\lvert A_1 \rvert$ (the cardinality of $A_1$) is finite. Moreover, since
+\[
+\bigl\lvert \bigcap_{n=1}^{\infty} A_n \bigr\rvert \ \le\ \lvert A_n \rvert
+\quad \text{for any } n,
+\]
+it follows that the intersection is finite.
+
+\end{proof}
+
+
+
+    \item[(c)] \( (A \cup B) \cup (A \cap B) = A \cup B \)
+
+    \textbf{Solution.} True.
+    \begin{align*}
+    & x \in A \cap B \\
+    \Rightarrow\quad & x \in A \text{ and } x \in B \\
+    \Rightarrow\quad & x \in A \text{ or } x \in B \\
+    \Rightarrow\quad & x \in A \cup B \\
+    \Rightarrow\quad & A \cap B \subseteq A \cup B \\
+    \Rightarrow\quad & (A \cup B) \cup (A \cap B) = A \cup B
+    \end{align*}
+
+
+    \item[(d)] \( A \cap (B \cup C) = (A \cap B) \cup C \)
+
+    \textbf{Solution.} True.
+    \begin{align*}
+    & (x \in A) \text{ and } (x \in B \cup C) \\
+    \Rightarrow\quad & (x \in A) \text{ and } (x \in B \text{ or } x \in C) \\
+    \Rightarrow\quad & (x \in A \text{ and } x \in B) \text{ or } (x \in A \text{ and } x \in C) \\
+    \Rightarrow\quad & x \in (A \cap B) \cup (A \cap C)
+    \end{align*}
+
+    \item[(e)] \( A \cap (B \cup C) = (A \cap B) \cup (A \cap C) \)
+
+    \textbf{Solution.}
+    Let \( x \in A \cap (B \cup C) \).
+    \begin{align*}
+    \Rightarrow\quad & x \in A \text{ and } (x \in B \cup C) \\
+    \Rightarrow\quad & x \in A \text{ and } (x \in B \text{ or } x \in C) \\
+    \Rightarrow\quad & (x \in A \text{ and } x \in B) \text{ or } (x \in A \text{ and } x \in C) \\
+    \Rightarrow\quad & x \in A \cap B \text{ or } x \in A \cap C \\
+    \Rightarrow\quad & x \in (A \cap B) \cup (A \cap C)
+    \end{align*}
+
+    So, \( A \cap (B \cup C) \subseteq (A \cap B) \cup (A \cap C) \).
+
+    Now, let \( x \in (A \cap B) \cup (A \cap C) \).
+    \begin{align*}
+    \Rightarrow\quad & x \in A \cap B \text{ or } x \in A \cap C \\
+    \Rightarrow\quad & (x \in A \text{ and } x \in B) \text{ or } (x \in A \text{ and } x \in C) \\
+    \Rightarrow\quad & x \in A \text{ and } (x \in B \text{ or } x \in C) \\
+    \Rightarrow\quad & x \in A \cap (B \cup C)
+    \end{align*}
+
+    So, \( (A \cap B) \cup (A \cap C) \subseteq A \cap (B \cup C) \).
+
+    Hence,
+    \[
+    A \cap (B \cup C) = (A \cap B) \cup (A \cap C).
+    \]
+
+\end{enumerate}
+
+---
+
+\textbf{Exercise 1.2.4.}  
+Produce an infinite collection of sets \( A_1, A_2, A_3, \ldots \), with the property that every \( A_n \) has an infinite number of elements, and for all \( i \ne j \), \( A_i \cap A_j = \emptyset \).
+
+\textbf{Solution.}
+
+Let \( A_1 = \{ 2k : k \in \mathbb{N} \} \).  
+
+Let \( A_2 = \{ 3k : k \in \mathbb{N}\} \setminus A_1 \).  
+
+Let \( A_3 = \{ 5k : k \in \mathbb{N}\} \setminus (A_1 \cup A_2) \).
+
+\vspace{5pt}
+
+Proceeding in this manner, define  
+\[
+A_i = \left\{ k \cdot p_i : k \in \mathbb{N} \right\} \setminus \bigcup_{j=1}^{i-1} A_j
+\]
+
+where \( p_i \) denotes the \( i^\text{th} \) smallest prime number.
+
+Each \( A_i \) is infinite because it contains all positive integral powers of a distinct prime \( p_i \), i.e.,  
+\[
+p_i,\, p_i^2,\, p_i^3,\, \dots
+\]
+which are all unique to \( A_i \).
+
+Also, all the \( A_i \) are pairwise disjoint by construction.
+
+\vspace{5pt}
+
+We claim that \( \bigcup_{i=1}^{\infty} A_i = \mathbb{N} \).
+
+Given any \( n \in \mathbb{N} \), let its prime factorisation be  
+\[
+n = a_1^{a_1'} \cdot a_2^{a_2'} \cdot \dots \cdot a_k^{a_k'},
+\]
+where each \( a_j \in \mathbb{N} \) is a prime number, and \( a_j' \in \mathbb{N} \) are their respective powers.
+
+Now, let \( a = \min\{a_1, a_2, \dots, a_k\} \), i.e., the smallest prime dividing \( n \).
+
+Then, \( a = p_i \) for some \( i \in \mathbb{N} \), where \( p_i \) is the \( i^\text{th} \) prime.
+
+Since \( n \) is divisible by \( p_i \), and \( A_i \) contains all multiples of \( p_i \) not already included in earlier sets,  
+we must have \( n \in A_i \).
+
+Hence, every natural number \( n \) belongs to some \( A_i \), and so:
+\[
+\bigcup_{i=1}^{\infty} A_i = \mathbb{N}.
+\]
+
+---
+
+\textbf{Exercise 1.2.5 (De Morgan’s Laws).}  
+Let \( A \) and \( B \) be subsets of \( \mathbb{R} \).
+
+\begin{enumerate}
+    \item[(a)] If \( x \in (A \cap B)^c \), explain why \( x \in A^c \cup B^c \).  
+    This shows that \( (A \cap B)^c \subseteq A^c \cup B^c \).
+
+    \textbf{Solution.}
+    If $x \in (A \cap B)^c$, then
+    \[
+    x \notin A \cap B
+    \]
+    \[
+    \implies x \notin A \text{ or } x \notin B \text{ (or both)}
+    \]
+    \[
+    \implies x \in A^c \text{ or } x \in B^c \text{ (or both)}
+    \]
+    \[
+    \implies x \in A^c \cup B^c.
+    \]
+    Therefore,
+    \[
+    (A \cap B)^c \subseteq A^c \cup B^c.
+    \]
+
+    \item[(b)] Prove the reverse inclusion \( (A \cap B)^c \supseteq A^c \cup B^c \), and conclude that  
+    \( (A \cap B)^c = A^c \cup B^c \).
+
+    \textbf{Solution.}
+    \\The reverse implication can be proved by following the above implications in reverse order.
+
+    \item[(c)] Show \( (A \cup B)^c = A^c \cap B^c \) by demonstrating inclusion both ways.
+
+    \textbf{Solution.}
+    Let $x \in A^c \cap B^c$. Then
+    \[
+    x \in A^c \text{ and } x \in B^c
+    \]
+    \[
+    \implies x \notin A \text{ and } x \notin B
+    \]
+    \[
+    \implies x \notin A \cup B
+    \]
+    \[
+    \implies x \in (A \cup B)^c.
+    \]
+    So,
+    \[
+    A^c \cap B^c \subseteq (A \cup B)^c.
+    \]
+    Reversing the implications gives
+    \[
+    (A \cup B)^c \subseteq A^c \cap B^c,
+    \]
+    and thus,
+    \[
+    (A \cup B)^c = A^c \cap B^c.
+    \]
+\end{enumerate}
+
+---
+
+\textbf{Exercise 1.2.6.}  
+\begin{enumerate}
+    \item[(a)] Verify the triangle inequality in the special case where the two numbers are the same sign.
+
+    \textbf{Solution.}
+    If $a$ and $b$ have the same sign, then
+\[
+a+b \text{ has the same sign as } a \text{ and } b.
+\]
+
+\textbf{Case 1:} $a$ and $b$ are both positive.
+
+\[
+a > 0 \text{ and } b > 0
+\]
+\[
+\implies |a| = a \text{ and } |b| = b
+\]
+\[
+\implies a+b = |a| + |b|
+\]
+\[
+\implies |a+b| = a+b = |a| + |b|
+\]
+\[
+\implies |a+b| \le |a| + |b|.
+\]
+
+\textbf{Case 2:} $a$ and $b$ are both negative.
+
+\[
+a < 0 \text{ and } b < 0
+\]
+\[
+\implies a+b < 0
+\]
+\[
+\implies |a+b| = -(a+b)
+\]
+\[
+\implies |a| = -a \text{ and } |b| = -b
+\]
+\[
+\implies |a| + |b| = -a - b = -(a+b)
+\]
+\[
+\implies |a+b| = |a| + |b|
+\]
+\[
+\implies |a+b| \le |a| + |b|.
+\]
+
+In both cases, the triangle inequality holds.
+
+    \item[(b)] Find an efficient proof for all the cases at once by first demonstrating that  
+    \( |a + b|^2 \le (|a| + |b|)^2 \).
+
+    \textbf{Solution.}
+\[
+a^2 = |a|^2 \quad \text{and} \quad b^2 = |b|^2
+\]
+\[
+(a+b)^2 = a^2 + b^2 + 2ab
+\]
+\[
+(|a| + |b|)^2 = |a|^2 + |b|^2 + 2|a||b|
+\]
+\[
+\implies (a+b)^2 = a^2 + b^2 + 2ab
+\]
+\[
+\implies (|a| + |b|)^2 = a^2 + b^2 + 2|ab|
+\]
+\[
+ab \le |ab|
+\]
+\[
+\implies (a+b)^2 \le (|a| + |b|)^2.
+\]
+
+Since $|a| + |b| \ge 0$,
+\[
+\sqrt{(|a| + |b|)^2} = |a| + |b|.
+\]
+Also,
+\[
+\sqrt{(a+b)^2} = |a+b|.
+\]
+Therefore,
+\[
+|a+b| \le |a| + |b|.
+\]
+
+    \item[(c)] Prove \( |a - b| = |b - a| = |c - d| = |d - c| \) for all \( a, b, c, d \).
+
+    \textbf{Solution.}
+    \[
+|a-b| \le |a-c| + |c-d| + |d-b|
+\]
+for all $a,b,c,d$.
+
+\textbf{Solution.}
+\[
+a-b = (a-c) + (c-d) + (d-b)
+\]
+\[
+\implies |a-b| = |(a-c) + (c-d) + (d-b)|
+\]
+\[
+\implies |a-b| \le |a-c| + |c-d| + |d-b|.
+\]
+
+    \item[(d)] Prove \( |a| + |b| \ge |a - b| \).  
+    (The unremarkable identity \( a - b = a + (-b) \) may be useful.)
+
+    \textbf{Solution.}
+    \[
+\bigl|\,|a| - |b|\,\bigr|
+= \left|\,\bigl|(a-b)+b\bigr| - |b|\,\right|
+\]
+\[
+\le \left|\,|a-b| + |b| - |b|\,\right|
+\]
+\[
+= |a-b|.
+\]
+
+\end{enumerate}
+
+---
+
+\textbf{Exercise 1.2.7.}  
+Given a function \( f \) and a subset \( A \) of its domain, let \( f(A) \) represent the range of \( f \) over the set \( A \), that is,  
+\[ f(A) = \{ f(x) : x \in A \} \]
+
+\begin{enumerate}
+    \item[(a)] Let \( f(x) = x^2 \). If \( A = [0, 2] \) and \( B = [1, 4] \), find \( f(A) \) and \( f(B) \).  
+    Does \( f(A \cap B) = f(A) \cap f(B) \)?  
+    Does \( f(A \cup B) = f(A) \cup f(B) \)?
+
+    \textbf{Solution.}
+    \[
+f(A) = [0,4], \qquad f(B) = [1,16].
+\]
+Yes,
+\[
+f(A \cap B) = f(A) \cap f(B).
+\]
+Yes,
+\[
+f(A \cup B) = f(A) \cup f(B).
+\]
+
+    \item[(b)] If \( f: \mathbb{R} \to \mathbb{R} \) and \( B \) is fixed, define \( f^{-1}(B) = \{ x \in \mathbb{R} : f(x) \in B \} \).  
+    Show that, for an arbitrary function \( g : \mathbb{R} \to \mathbb{R} \), it is always true that  
+    \( g(A \cap B) \subseteq g(A) \cap g(B) \) for all sets \( A, B \subseteq \mathbb{R} \).  
+    Find an example to show that the relationship between \( g(A \cup B) \) and \( g(A) \cup g(B) \) is not arbitrary inclusion.
+
+    \textbf{Solution.}
+    Let
+\[
+A = [-2,1], \qquad B = [0,3].
+\]
+
+\item[(c)] Show that for an arbitrary function $g : \mathbb{R} \to \mathbb{R}$,
+\[
+g(A \cap B) \subseteq g(A) \cap g(B)
+\]
+for all sets $A,B \subseteq \mathbb{R}$.
+
+\textbf{Solution.}
+Let $x \in g(A \cap B)$. Then
+\[
+\exists\, y \in A \cap B \text{ such that } g(y) = x.
+\]
+\[
+y \in A \implies g(y) \in g(A)
+\]
+\[
+y \in B \implies g(y) \in g(B)
+\]
+\[
+\implies g(y) = x \in g(A) \cap g(B).
+\]
+Thus,
+\[
+g(A \cap B) \subseteq g(A) \cap g(B).
+\]
+\hfill $\qed$
+
+\item[(d)] Form and prove a conjecture about the relationship between $g(A \cup B)$ and $g(A) \cup g(B)$.
+
+\textbf{Conjecture.}
+\[
+g(A \cup B) = g(A) \cup g(B).
+\]
+
+\textbf{Proof.}
+Let $y \in g(A \cup B)$. Then
+\[
+\exists\, x \in A \cup B \text{ such that } g(x) = y
+\]
+\[
+\implies x \in A \text{ or } x \in B
+\]
+\[
+\implies g(x) \in g(A) \text{ or } g(x) \in g(B)
+\]
+\[
+\implies y \in g(A) \cup g(B).
+\]
+Therefore,
+\[
+g(A) \cup g(B) \subseteq g(A \cup B).
+\]
+
+
+Let $y \in g(A) \cup g(B)$. Then
+\[
+y \in g(A) \text{ or } y \in g(B)
+\]
+\[
+\implies \exists\, x_1 \in A \text{ such that } g(x_1)=y 
+\quad \text{or} \quad
+\exists\, x_2 \in B \text{ such that } g(x_2)=y
+\]
+\[
+\implies \exists\, x_1 \in A \cup B \text{ such that } g(x_1)=y
+\quad \text{or} \quad
+\exists\, x_2 \in A \cup B \text{ such that } g(x_2)=y
+\]
+\[
+\implies y \in g(A \cup B).
+\]
+Therefore,
+\[
+g(A \cup B) = g(A) \cup g(B).
+\]
+
+\end{enumerate}
+
+---
+
+\textbf{Exercise 1.2.8.}  
+Let \( f : A \to B \). State whether the following are possible or not. If possible, provide an example.
+
+\begin{enumerate}
+    \item[(a)] \( f : \mathbb{N} \to \mathbb{N} \) that is 1-1 but not onto.
+
+    \textbf{Solution.} Impossible.
+
+    \item[(b)] \( f : \mathbb{N} \to \mathbb{N} \) that is onto but not 1-1.
+
+    \textbf{Solution.}
+    \[
+    f(x) = x^2.
+    \]
+
+    \item[(c)] \( f : \mathbb{N} \to \mathbb{Z} \) that is 1-1 and onto.
+
+    \textbf{Solution.} Impossible.
+\end{enumerate}
+
+---
+
+\textbf{Exercise 1.2.9.} 
+Given a function $f : D \to \mathbb{R}$ and a subset $B \subseteq \mathbb{R}$, let
+$f^{-1}(B)$ be the set of all points from the domain $D$ that get mapped into $B$; that is,
+\[
+f^{-1}(B) = \{x \in D : f(x) \in B\}.
+\]
+This set is called the \emph{preimage} of $B$.
+
+\begin{enumerate}
+    \item[(a)] Let $f(x) = x^2$. If $A$ is the closed interval $[0,4]$ and $B$ is the closed interval
+    $[-1,1]$, find $f^{-1}(A)$ and $f^{-1}(B)$. Does
+    \[
+    f^{-1}(A \cap B) = f^{-1}(A) \cap f^{-1}(B)
+    \]
+    in this case? Does
+    \[
+    f^{-1}(A \cup B) = f^{-1}(A) \cup f^{-1}(B)?
+    \]
+
+    \textbf{Solution.}
+    \[
+    f^{-1}(A) = [-2,2],
+    \qquad
+    f^{-1}(B) = [-1,1].
+    \]
+    \[
+    f^{-1}(A \cap B) = f^{-1}([0,1]) = [-1,1].
+    \]
+    \[
+    f^{-1}(A \cup B) = f^{-1}([-1,4]) = [-2,2].
+    \]
+    Hence,
+    \[
+    f^{-1}(A \cap B) = f^{-1}(A) \cap f^{-1}(B),
+    \qquad
+    f^{-1}(A \cup B) = f^{-1}(A) \cup f^{-1}(B).
+    \]
+    \item[(b)] The good behavior of preimages demonstrated in (a) is completely general.
+    Show that for an arbitrary function $g : \mathbb{R} \to \mathbb{R}$, it is always true that
+    \[
+    g^{-1}(A \cap B) = g^{-1}(A) \cap g^{-1}(B)
+    \quad \text{and} \quad
+    g^{-1}(A \cup B) = g^{-1}(A) \cup g^{-1}(B)
+    \]
+    for all sets $A, B \subseteq \mathbb{R}$.
+
+    \textbf{Solution.}
+    Let $x \in g^{-1}(A \cap B)$. Then
+    \[
+    g(x) \in A \cap B
+    \]
+    \[
+    \implies g(x) \in A \text{ and } g(x) \in B
+    \]
+    \[
+    \implies x \in g^{-1}(A) \text{ and } x \in g^{-1}(B)
+    \]
+    \[
+    \implies x \in g^{-1}(A) \cap g^{-1}(B).
+    \]
+    Thus,
+    \[
+    g^{-1}(A \cap B) \subseteq g^{-1}(A) \cap g^{-1}(B).
+    \]
+
+    The reverse inclusion follows by reversing the above implications, and hence
+    \[
+    g^{-1}(A \cap B) = g^{-1}(A) \cap g^{-1}(B).
+    \]
+
+    The proof for unions is analogous:
+    \[
+    g^{-1}(A \cup B) = g^{-1}(A) \cup g^{-1}(B).
+    \]
+\end{enumerate}
+
+---
+
+\textbf{Exercise 1.2.10.}
+Decide which of the following statements are true. Provide a short justification
+for those that are valid and a counterexample for those that are not.
+
+\begin{enumerate}[(a)]
+    \item Two real numbers satisfy $a < b$ if and only if
+    $a < b + \varepsilon$ for every $\varepsilon > 0$.
+
+    \textit{Solution.}
+
+    $(\Rightarrow)$ If $a < b$, then for any $\varepsilon > 0$,
+    \[
+    a < b < b + \varepsilon,
+    \]
+    so $a < b + \varepsilon$.
+
+    $(\Leftarrow)$ This implication is false.  
+    Counterexample: let $a = 1$ and $b = 1$.  
+    Then $a < b + \varepsilon$ for every $\varepsilon > 0$, but $a \not< b$.
+
+    \item Two real numbers satisfy $a < b$ if
+    $a < b + \varepsilon$ for every $\varepsilon > 0$.
+
+    \textit{Solution.}
+
+    This statement is false.  
+    Counterexample: let $a = 1$ and $b = 1$.  
+    Then $a < b + \varepsilon$ for every $\varepsilon > 0$, but $a \not< b$.
+
+    \item Two real numbers satisfy $a \le b$ if and only if
+    $a < b + \varepsilon$ for every $\varepsilon > 0$.
+
+    \textit{Solution.}
+
+    $(\Rightarrow)$ If $a \le b$, then for any $\varepsilon > 0$,
+    \[
+    a \le b < b + \varepsilon \;\Rightarrow\; a < b + \varepsilon.
+    \]
+
+    $(\Leftarrow)$ Assume $a < b + \varepsilon$ for every $\varepsilon > 0$.
+    Define
+    \[
+    A = \{\, b + \varepsilon : \varepsilon > 0 \,\}.
+    \]
+    Then $\inf A = b$.  
+    Since $a$ is a lower bound for $A$, we conclude
+    \[
+    a \le \inf A = b.
+    \]
+\end{enumerate}
+
+
+---
+
+\textbf{Exercise 1.2.11.}  
+This exercise deals with the formal logic of negation and claim.  
+One main goal is to practice identifying the negation of a mathematical claim.
+
+Let a statement be given. Then decide whether the statement is true, and justify your answer.  
+If false, state its **negation** and determine whether it is true.
+
+\begin{enumerate}
+    \item[(a)] There exists a real number \( x > 0 \) such that \( x < 1/n \) for all \( n \in \mathbb{N} \).
+
+    \textbf{Solution.}
+    Original statement: 
+    \[
+    \forall a,b \in \mathbb{R},\ a<b \implies \exists n \in \mathbb{N} \text{ such that } a + \frac{1}{n} < b.
+    \]
+    \textbf{Truth:} True.  
+
+    \textbf{Reason:} Let $e = b-a > 0$. By the Archimedean property, choose $N \in \mathbb{N}$ such that $\frac{1}{N} < e$. Then
+    \[
+    a + \frac{1}{N} < b.
+    \]
+
+    \textbf{Negation:} 
+    \[
+    \exists a,b \in \mathbb{R},\ a<b \text{ such that } \forall n \in \mathbb{N},\ a + \frac{1}{n} \ge b.
+    \]
+
+    \item[(b)] Between every two distinct real numbers there is a rational number.
+
+    \textbf{Solution.}
+    Original statement: 
+    \[
+    \exists x \in \mathbb{R},\ x>0 \text{ such that } x < \frac{1}{n} \text{ for all } n \in \mathbb{N}.
+    \]
+    \textbf{Truth:} False.  
+
+    \textbf{Negation:} 
+    \[
+    \forall x \in \mathbb{R},\ x>0 \implies \exists n \in \mathbb{N} \text{ such that } \frac{1}{n} < x.
+    \]
+    This is true by the Archimedean property.
+
+    \item[(c)] Between every two distinct real numbers there is a rational number.
+
+    \textbf{Solution.}
+    Original statement: 
+    \[
+    \text{Between every two distinct real numbers there is a rational number.}
+    \]
+    \textbf{Truth:} True.  
+
+    \textbf{Negation:} 
+    \[
+    \exists a,b \in \mathbb{R},\ a \neq b \text{ such that no rational number lies between } a \text{ and } b.
+    \]
+\end{enumerate}
+
+---
+
+\textbf{Exercise 1.2.12.}  
+Let \( y_1 = 6 \), and for each \( n \in \mathbb{N} \) define \( y_{n+1} = \frac{2y_n}{3} \).
+
+\begin{enumerate}
+    \item[(a)] Use induction to prove that the sequence satisfies \( y_n > 6 - \epsilon \) for all \( n \in \mathbb{N} \).
+
+    \textbf{Solution.}
+    \textbf{Base step:}  
+\[
+y_1 = 6 > -6.
+\]
+
+\textbf{Induction hypothesis:}  
+Assume \( y_n > -6 \).
+
+\textbf{Inductive step:}  
+We must show that \( y_{n+1} > -6 \).
+
+\[
+y_{n+1} = \frac{2y_n - 6}{3}.
+\]
+
+Since \( y_n > -6 \), we have
+\[
+2y_n - 6 > 2(-6) - 6 = -12 - 6 = -18.
+\]
+
+Dividing by \(3\),
+\[
+y_{n+1} = \frac{2y_n - 6}{3} > \frac{-18}{3} = -6.
+\]
+
+Hence \( y_{n+1} > -6 \).
+
+\hfill \( \square \)
+
+    \item[(b)] Use another induction argument to show the sequence \( (y_1, y_2, y_3, \ldots) \) is decreasing.
+
+    \textbf{Solution.}
+    \textbf{Base step:}  
+\[
+y_2 < y_1, \qquad 2 < 6.
+\]
+
+\textbf{Induction hypothesis:}  
+Assume \( y_n < y_{n-1} \).
+
+\textbf{Inductive step:}  
+We must show that \( y_{n+1} < y_n \).
+
+\[
+y_n = \frac{2y_{n-1} - 6}{3} < y_{n-1}.
+\]
+
+Multiplying by \(3\),
+\[
+2y_{n-1} - 6 < 3y_{n-1}.
+\]
+
+Rewriting,
+\[
+3y_{n-1} + 6 > 2y_{n-1}.
+\]
+
+Thus,
+\[
+y_{n-1} > \frac{2y_{n-1} - 6}{3} = y_n.
+\]
+
+Now,
+\[
+y_{n+1} = \frac{2y_n - 6}{3}.
+\]
+
+From the above inequality,
+\[
+y_n > y_{n+1}.
+\]
+
+Hence \( y_{n+1} < y_n \).
+
+\hfill \( \square \)
+\end{enumerate}
+
+---
+
+\textbf{Exercise 1.2.13.}  
+For this exercise, assume Exercise 1.2.5 has been successfully completed.
+
+\begin{enumerate}
+    \item[(a)] Show how induction can be used to conclude that  
+    \[ (A_1 \cup A_2 \cup \cdots \cup A_n)^c = A_1^c \cap A_2^c \cap \cdots \cap A_n^c \]  
+    for any finite \( n \in \mathbb{N} \).
+
+    \textbf{Solution.}
+    \textbf{Base step:}  
+For \( n = 2 \),
+\[
+(A_1 \cup A_2)^c = A_1^c \cap A_2^c.
+\]
+
+\textbf{Induction hypothesis:}  
+Assume
+\[
+(A_1 \cup A_2 \cup \cdots \cup A_n)^c
+=
+A_1^c \cap A_2^c \cap \cdots \cap A_n^c.
+\]
+
+\textbf{Inductive step:}
+\[
+(A_1 \cup A_2 \cup \cdots \cup A_n \cup A_{n+1})^c
+=
+(A_1 \cup \cdots \cup A_n)^c \cap A_{n+1}^c
+\]
+\[
+\implies
+A_1^c \cap A_2^c \cap \cdots \cap A_n^c \cap A_{n+1}^c.
+\]
+
+\hfill \( \square \)
+
+    \item[(b)] It is tempting to appeal to induction to conclude  
+    \[
+    \left( \bigcup_{i=1}^{\infty} A_i \right)^c = \bigcap_{i=1}^{\infty} A_i^c,
+    \]  
+    but induction does not apply here. Induction is used to prove that a particular statement holds for **every finite** \( n \in \mathbb{N} \), but this does not imply the validity of the infinite case.
+
+    Explain why **the infinite version is not a consequence of induction**, and illustrate with a counterexample.
+
+    \textbf{Solution.}
+    Let
+\[
+B_n = \left(0, \frac{1}{n}\right).
+\]
+
+For every \( n \in \mathbb{N} \),
+\[
+\bigcap_{i=1}^{n} B_i
+=
+\left(0, \frac{1}{n}\right)
+\neq \varnothing.
+\]
+
+However, if
+\[
+x \in \bigcap_{i=1}^{\infty} B_i,
+\]
+then
+\[
+0 < x < \frac{1}{n} \quad \text{for all } n \in \mathbb{N},
+\]
+which is impossible. Hence,
+\[
+\bigcap_{i=1}^{\infty} B_i = \varnothing.
+\]
+
+    \item[(c)] Nevertheless, the infinite version of De Morgan’s Law stated in (b) is a valid statement. Provide a proof that does **not** use induction.
+
+    \textbf{Solution.}
+    Let
+\[
+x \in \left( \bigcup_{i=1}^{\infty} A_i \right)^c.
+\]
+
+\[
+\implies x \notin A_i \text{ for all } i \in \mathbb{N}
+\]
+\[
+\implies x \in A_1^c \text{ and } x \in A_2^c \text{ and } \cdots
+\]
+\[
+\implies x \in A_1^c \cap A_2^c \cap \cdots
+\]
+
+Hence,
+\[
+\left( \bigcup_{i=1}^{\infty} A_i \right)^c
+=
+\bigcap_{i=1}^{\infty} A_i^c.
+\]
+
+\hfill \( \square \)
+\end{enumerate}
+
+\end{document}
